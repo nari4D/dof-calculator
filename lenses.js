@@ -1,11 +1,11 @@
 /* ═══════════════════════════════════════════════════════════
-   DoF Calculator — Lens Database
+   DoF Calculator — Lens Database  v23
    https://github.com/nari4D/dof-calculator
 
    Format:
    { focal:XX, fstop:X.X, name:'Brand XXmm FX.X', sensors:['FF'], asin_jp:'XXXXXXXXXX', asin_en:'XXXXXXXXXX', year:XXXX },
 
-   sensors: 'MF' = Medium Format, 'FF' = Full Frame, 'APSC' = APS-C, '1INCH' = 1 inch
+   sensors: 'MF'=Medium Format, 'FF'=Full Frame, 'APSC'=APS-C, '1INCH'=1 inch
    year: release year (affiliate section shows year >= 2020 only)
    ASINs verified on amazon.co.jp / amazon.com (Apr 2026)
    JP≠EN when the two stores carry different listings
@@ -13,11 +13,19 @@
 
 const LENS_DB = [
 
-  /* ── Medium Format ──────────────────────────────────────── */
-  { focal:30,  fstop:3.5, name:'Fujinon GF 30mm F3.5 R WR',           sensors:['MF'], asin_jp:'B0B6ZK1YWN', asin_en:'B0B6ZK1YWN', year:2022 },
-  { focal:45,  fstop:2.8, name:'Fujinon GF 45mm F2.8 R WR',           sensors:['MF'], asin_jp:'B078WGWHR5', asin_en:'B078WGWHR5', year:2018 },
+  /* ── Medium Format — Fujifilm GF ────────────────────────── */
+  { focal:20,  fstop:4.0, name:'Fujinon GF 20-35mm F4 R WR',          sensors:['MF'], asin_jp:'B0BZXM2TB5', asin_en:'B0BCR6YBJR', year:2022 },
+  { focal:23,  fstop:4.0, name:'Fujinon GF 23mm F4 R LM WR',          sensors:['MF'], asin_jp:'B01N12IMGM', asin_en:'B01N12IMGM', year:2017 },
+  { focal:30,  fstop:3.5, name:'Fujinon GF 30mm F3.5 R WR',           sensors:['MF'], asin_jp:'B08CMNV9ZV', asin_en:'B08CMNV9ZV', year:2020 },
+  { focal:45,  fstop:2.8, name:'Fujinon GF 45mm F2.8 R WR',           sensors:['MF'], asin_jp:'B078WGWHR5', asin_en:'B078WGWHR5', year:2017 },
+  { focal:35,  fstop:4.5, name:'Fujinon GF 35-70mm F4.5-5.6 WR',      sensors:['MF'], asin_jp:'B09WD12FMR', asin_en:'B09WD12FMR', year:2022 },
+  { focal:50,  fstop:3.5, name:'Fujinon GF 50mm F3.5 R LM WR',        sensors:['MF'], asin_jp:'B07X38NSDP', asin_en:'B07X38NSDP', year:2019 },
+  { focal:55,  fstop:1.7, name:'Fujinon GF 55mm F1.7 R WR',           sensors:['MF'], asin_jp:'B0CHG23DJC', asin_en:'B0CHG23DJC', year:2023 },
+  { focal:80,  fstop:1.7, name:'Fujinon GF 80mm F1.7 R WR',           sensors:['MF'], asin_jp:'B08VGT7HST', asin_en:'B08TPBNCYM', year:2021 },
   { focal:45,  fstop:4.0, name:'Fujinon GF 45-100mm F4 R LM OIS WR',  sensors:['MF'], asin_jp:'B07VHKQ3B7', asin_en:'B07VHKQ3B7', year:2019 },
-  { focal:25,  fstop:4.0, name:'Hasselblad XCD 21mm F4',              sensors:['MF'], asin_jp:'B09CGQKTK7', asin_en:'B09CGQKTK7', year:2021 },
+
+  /* ── Medium Format — Hasselblad XCD ─────────────────────── */
+  { focal:21,  fstop:4.0, name:'Hasselblad XCD 21mm F4',              sensors:['MF'], asin_jp:'B09CGQKTK7', asin_en:'B09CGQKTK7', year:2021 },
   { focal:35,  fstop:3.5, name:'Hasselblad XCD 35-75mm F3.5-4.5',     sensors:['MF'], asin_jp:'B09CGQ8KMQ', asin_en:'B09CGQ8KMQ', year:2021 },
 
   /* ── Full Frame — Sony FE ───────────────────────────────── */
@@ -83,13 +91,35 @@ const LENS_DB = [
   { focal:35,  fstop:1.8, name:'Sony E 35mm F1.8 OSS',                sensors:['APSC'], asin_jp:'B00GEBLXGO', asin_en:'B00GEBLXGO', year:2013 },
   { focal:50,  fstop:1.8, name:'Sony E 50mm F1.8 OSS',                sensors:['APSC'], asin_jp:'B00DMLPVG0', asin_en:'B00DMLPVG0', year:2013 },
 
-  /* ── APS-C — Sigma (Sony E) ─────────────────────────────── */
+  /* ── APS-C — Fujifilm XF ────────────────────────────────── */
+  { focal:10,  fstop:4.0, name:'Fujinon XF 10-24mm F4 R OIS WR',      sensors:['APSC'], asin_jp:'B00HE5MXE0', asin_en:'B00HE5MXE0', year:2013 },
+  { focal:16,  fstop:1.4, name:'Fujinon XF 16mm F1.4 R WR',           sensors:['APSC'], asin_jp:'B00XN53JME', asin_en:'B00XN53JME', year:2015 },
+  { focal:18,  fstop:1.4, name:'Fujinon XF 18mm F1.4 R LM WR',        sensors:['APSC'], asin_jp:'B0921Q4498', asin_en:'B0923F7V45', year:2021 },
+  { focal:23,  fstop:1.4, name:'Fujinon XF 23mm F1.4 R LM WR',        sensors:['APSC'], asin_jp:'B09M2HBQ5P', asin_en:'B09M2HBQ5P', year:2021 },
+  { focal:33,  fstop:1.4, name:'Fujinon XF 33mm F1.4 R LM WR',        sensors:['APSC'], asin_jp:'B09M2JLQK7', asin_en:'B09M2JLQK7', year:2021 },
+  { focal:35,  fstop:1.4, name:'Fujinon XF 35mm F1.4 R',              sensors:['APSC'], asin_jp:'B006VQLZGM', asin_en:'B006VQLZGM', year:2012 },
+  { focal:35,  fstop:2.0, name:'Fujinon XF 35mm F2 R WR',             sensors:['APSC'], asin_jp:'B015HCM6C2', asin_en:'B015HCM6C2', year:2015 },
+  { focal:50,  fstop:1.0, name:'Fujinon XF 50mm F1.0 R WR',           sensors:['APSC'], asin_jp:'B08DB1ZY4V', asin_en:'B08DB1ZY4V', year:2020 },
+
+  /* ── APS-C — Canon RF-S ─────────────────────────────────── */
+  { focal:10,  fstop:4.5, name:'Canon RF-S 10-18mm F4.5-6.3 IS STM',  sensors:['APSC'], asin_jp:'B0D4RXPZ8G', asin_en:'B0D6GY79XV', year:2023 },
+  { focal:18,  fstop:4.5, name:'Canon RF-S 18-45mm F4.5-6.3 IS STM',  sensors:['APSC'], asin_jp:'B09B4V58FL', asin_en:'B09B4V58FL', year:2022 },
+
+  /* ── APS-C — Sigma (Sony E / Fuji X) ───────────────────── */
   { focal:16,  fstop:1.4, name:'Sigma 16mm F1.4 DC DN Contemporary',  sensors:['APSC'], asin_jp:'B077BWG7VX', asin_en:'B077BWG7VX', year:2017 },
+  { focal:18,  fstop:2.8, name:'Sigma 18-50mm F2.8 DC DN Contemporary',sensors:['APSC'], asin_jp:'B09JFXS4X1', asin_en:'B09JFXS4X1', year:2021 },
   { focal:30,  fstop:1.4, name:'Sigma 30mm F1.4 DC DN Contemporary',  sensors:['APSC'], asin_jp:'B075543MDD', asin_en:'B075543MDD', year:2017 },
 
-  /* ── 1 inch ─────────────────────────────────────────────── */
-  { focal:24,  fstop:1.8, name:'Sony RX100 VII (24-200mm)',            sensors:['1INCH'], asin_jp:'B07VDGB5R6', asin_en:'B07VDGB5R6', year:2019 },
-  { focal:18,  fstop:1.8, name:'Sony ZV-1 II (18-50mm)',              sensors:['1INCH'], asin_jp:'B0C2KBCYK3', asin_en:'B0C2KBCYK3', year:2023 },
-  { focal:24,  fstop:1.8, name:'Canon PowerShot G5 X Mark II',        sensors:['1INCH'], asin_jp:'B07VW8RN6T', asin_en:'B07VW8RN6T', year:2019 },
+  /* ── APS-C — Samyang / Viltrox ──────────────────────────── */
+  { focal:12,  fstop:2.0, name:'Samyang AF 12mm F2.0 E',               sensors:['APSC'], asin_jp:'B08Z2SMKDB', asin_en:'B08Z2SMKDB', year:2021 },
+  { focal:24,  fstop:1.8, name:'Viltrox AF 24mm F1.8 E (APS-C)',       sensors:['APSC'], asin_jp:'B0C52SL5SS', asin_en:'B0C52SL5SS', year:2023 },
+  { focal:35,  fstop:1.7, name:'Viltrox AF 35mm F1.7 E',               sensors:['APSC'], asin_jp:'B0CKBB8JGV', asin_en:'B0CKBB8JGV', year:2023 },
+  { focal:50,  fstop:1.8, name:'Viltrox AF 50mm F1.8 E (APS-C)',       sensors:['APSC'], asin_jp:'B0BW4J2JFH', asin_en:'B0BW4J2JFH', year:2023 },
+
+  /* ── 1-inch ─────────────────────────────────────────────── */
+  { focal:24,  fstop:1.8, name:'Sony Cyber-shot RX100 VII',            sensors:['1INCH'], asin_jp:'B07VDGB5R6', asin_en:'B07VDGB5R6', year:2019 },
+  { focal:18,  fstop:1.8, name:'Sony VLOGCAM ZV-1 II (18-50mm)',       sensors:['1INCH'], asin_jp:'B0C2KBCYK3', asin_en:'B0C2KBCYK3', year:2023 },
+  { focal:20,  fstop:2.0, name:'Sony VLOGCAM ZV-1F (20mm F2.0)',       sensors:['1INCH'], asin_jp:'B0BJ6HXBJZ', asin_en:'B0BHKKHNHM', year:2022 },
+  { focal:24,  fstop:1.8, name:'Canon PowerShot G7 X Mark III',        sensors:['1INCH'], asin_jp:'B07V6DHHRX', asin_en:'B07VF8BBGH', year:2019 },
 
 ];
