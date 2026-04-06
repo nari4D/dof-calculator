@@ -335,7 +335,7 @@ footer{animation-delay:.17s}
       <div class="brand-icon">⌖</div>
       <div>
         <h1><em>DoF</em> Calculator</h1>
-        <div class="subtitle">depth of field · 被写界深度 · v24</div>
+        <div class="subtitle">depth of field · 被写界深度 · v25</div>
       </div>
     </div>
     <div class="header-controls">
@@ -490,7 +490,7 @@ footer{animation-delay:.17s}
 <footer>
   <div class="footer-row">
     <div>
-      <div class="footer-left" id="footerText">Depth of Field Calculator v24<br>CoC-based optical formula</div>
+      <div class="footer-left" id="footerText">Depth of Field Calculator v25<br>CoC-based optical formula</div>
       <div class="footer-left" id="affiliateNote">※Contains Amazon affiliate links</div>
     </div>
     <a href="https://github.com/nari4D/dof-calculator/" class="footer-link" id="footerGithub" target="_blank" rel="noopener">View on GitHub →</a>
@@ -538,7 +538,7 @@ const T = {
     verdictNgFar:(over,far)=>`ピント外れ　被写体の奥端がFar限界（${far}）より <strong>${over}</strong> 超えています。`,
     verdictNgBoth:(near,far)=>`ピント外れ　被写体が手前・奥の両側でフォーカス範囲（${near}〜${far}）を超えています。`,
     noteText:'「被写体の奥行き」スライダーで判定基準を自由に変更できます。',
-    shareBtnText:'シェア', footerText:'Depth of Field Calculator v24\nCoC-based optical formula',
+    shareBtnText:'シェア', footerText:'Depth of Field Calculator v25\nCoC-based optical formula',
     footerGithub:'GitHub で見る →', vizFocus:'ピント範囲', vizSubject:'被写体の奥行き',
   },
   en:{
@@ -557,7 +557,7 @@ const T = {
     verdictNgFar:(over,far)=>`Out of focus　Subject extends <strong>${over}</strong> beyond the far limit (${far}).`,
     verdictNgBoth:(near,far)=>`Out of focus　Subject extends beyond both near and far limits (${near}〜${far}).`,
     noteText:'Use the "Subject Depth" slider to change the in-focus judgment threshold.',
-    shareBtnText:'Share', footerText:'Depth of Field Calculator v24\nCoC-based optical formula',
+    shareBtnText:'Share', footerText:'Depth of Field Calculator v25\nCoC-based optical formula',
     footerGithub:'View on GitHub →', vizFocus:'Focus zone', vizSubject:'Subject depth',
   }
 };
@@ -1271,17 +1271,17 @@ function renderAffiliate() {
 const BRAND_CONFIG = {
   FF:     ['Sony','Canon','Nikon','Lumix','Sigma','Samyang','Viltrox'],
   MF:     ['Fujifilm','Hasselblad'],
-  APSC:   ['Sony','Canon','Fujifilm','Sigma','Samyang','Viltrox'],
+  APSC:   ['Sony','Canon','Fujifilm','Nikon','Sigma','Samyang','Viltrox'],
   '1INCH':['Sony','Canon'],
 };
 
 /* Which brands count as "third-party" companions for a given body brand */
 const COMPANION_BRANDS = {
-  Sony:   ['Sigma','Samyang','Viltrox','Tamron'],
-  Canon:  ['Sigma','Samyang','Viltrox','Tamron'],
-  Nikon:  ['Sigma','Samyang','Viltrox','Tamron'],
-  Lumix:  ['Sigma','Samyang'],
-  Fujifilm:['Sigma','Samyang','Viltrox'],
+  Sony:      ['Sigma','Samyang','Viltrox','Tamron'],
+  Canon:     ['Sigma','Samyang','Viltrox','Tamron'],
+  Nikon:     ['Sigma','Samyang','Viltrox','Tamron'],
+  Lumix:     ['Sigma','Samyang'],
+  Fujifilm:  ['Sigma','Samyang','Viltrox'],
   Hasselblad:[],
 };
 

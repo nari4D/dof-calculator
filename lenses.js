@@ -1,5 +1,5 @@
-/* ═══════════════════════════════════════════════════════════
-   DoF Calculator — Lens Database  v23
+/* ═══════════════════════════════════════════════════════════════
+   DoF Calculator — Lens Database  v25
    https://github.com/nari4D/dof-calculator
 
    Format:
@@ -8,8 +8,12 @@
    sensors: 'MF'=Medium Format, 'FF'=Full Frame, 'APSC'=APS-C, '1INCH'=1 inch
    year: release year (affiliate section shows year >= 2020 only)
    ASINs verified on amazon.co.jp / amazon.com (Apr 2026)
-   JP≠EN when the two stores carry different listings
-═══════════════════════════════════════════════════════════ */
+
+   Mount notes:
+   - Sigma DG DN Art: Sony E and L-mount ONLY (no Canon RF, no Nikon Z)
+   - Viltrox FF Z-mount: 20/2.8, 24/1.8, 35/1.8 available natively
+   - Canon RF FF third-party: very limited (Canon licensing restrictions)
+═══════════════════════════════════════════════════════════════ */
 
 const LENS_DB = [
 
@@ -30,7 +34,6 @@ const LENS_DB = [
 
   /* ── Full Frame — Sony FE ───────────────────────────────── */
   { focal:14,  fstop:1.8, name:'Sony FE 14mm F1.8 GM',                sensors:['FF'], asin_jp:'B093BY7LKP', asin_en:'B09316YPCH', year:2021 },
-  { focal:16,  fstop:1.8, name:'Sony FE 16mm F1.8 G',                 sensors:['FF'], asin_jp:'B0DYLFY85D', asin_en:'B0DYK97L9M', year:2025 },
   { focal:16,  fstop:2.8, name:'Sony FE 16-25mm F2.8 G',              sensors:['FF'], asin_jp:'B0D1X89TH8', asin_en:'B0D1VWRW46', year:2024 },
   { focal:20,  fstop:1.8, name:'Sony FE 20mm F1.8 G',                 sensors:['FF'], asin_jp:'B0854Y5YWH', asin_en:'B084ZDLBVQ', year:2020 },
   { focal:24,  fstop:1.4, name:'Sony FE 24mm F1.4 GM',                sensors:['FF'], asin_jp:'B07HSSRJ9D', asin_en:'B07HJXVHSS', year:2018 },
@@ -64,6 +67,7 @@ const LENS_DB = [
   { focal:50,  fstop:1.8, name:'Lumix S 50mm F1.8',                  sensors:['FF'], asin_jp:'B093NKZCR4', asin_en:'B093NKZCR4', year:2020 },
 
   /* ── Full Frame — Sigma DG DN Art (Sony E) ──────────────── */
+  /* Note: DG DN Art series = Sony E + L-mount ONLY. No Canon RF or Nikon Z versions exist. */
   { focal:20,  fstop:1.4, name:'Sigma 20mm F1.4 DG DN Art (Sony E)',  sensors:['FF'], asin_jp:'B0B8Z5582N', asin_en:'B0B8Z5582N', year:2022 },
   { focal:24,  fstop:1.4, name:'Sigma 24mm F1.4 DG DN Art (Sony E)',  sensors:['FF'], asin_jp:'B0B91YP783', asin_en:'B0B91YP783', year:2022 },
   { focal:35,  fstop:1.4, name:'Sigma 35mm F1.4 DG DN Art (Sony E)',  sensors:['FF'], asin_jp:'B093JQ7XPK', asin_en:'B093JQ7XPK', year:2021 },
@@ -86,6 +90,11 @@ const LENS_DB = [
   { focal:24,  fstop:1.8, name:'Viltrox AF 24mm F1.8 FE',             sensors:['FF'], asin_jp:'B091DP6K96', asin_en:'B091DP6K96', year:2021 },
   { focal:35,  fstop:1.8, name:'Viltrox AF 35mm F1.8 FE',             sensors:['FF'], asin_jp:'B09ND9W2WG', asin_en:'B09ND9W2WG', year:2022 },
 
+  /* ── Full Frame — Viltrox (Nikon Z) ─────────────────────── */
+  { focal:20,  fstop:2.8, name:'Viltrox AF 20mm F2.8 (Nikon Z)',       sensors:['FF'], asin_jp:'B0CTLTKNZ3', asin_en:'B0CPSLDM7G', year:2024 },
+  { focal:24,  fstop:1.8, name:'Viltrox AF 24mm F1.8 (Nikon Z)',       sensors:['FF'], asin_jp:'B0C52SL5SS', asin_en:'B09CPYVCC3', year:2021 },
+  { focal:35,  fstop:1.8, name:'Viltrox AF 35mm F1.8 (Nikon Z)',       sensors:['FF'], asin_jp:'B09G2G44WQ', asin_en:'B09G2G44WQ', year:2021 },
+
   /* ── APS-C — Sony E ─────────────────────────────────────── */
   { focal:11,  fstop:1.8, name:'Sony E 11mm F1.8',                    sensors:['APSC'], asin_jp:'B09RZPZDMW', asin_en:'B09RZPZDMW', year:2022 },
   { focal:35,  fstop:1.8, name:'Sony E 35mm F1.8 OSS',                sensors:['APSC'], asin_jp:'B00GEBLXGO', asin_en:'B00GEBLXGO', year:2013 },
@@ -105,16 +114,20 @@ const LENS_DB = [
   { focal:10,  fstop:4.5, name:'Canon RF-S 10-18mm F4.5-6.3 IS STM',  sensors:['APSC'], asin_jp:'B0D4RXPZ8G', asin_en:'B0D6GY79XV', year:2023 },
   { focal:18,  fstop:4.5, name:'Canon RF-S 18-45mm F4.5-6.3 IS STM',  sensors:['APSC'], asin_jp:'B09B4V58FL', asin_en:'B09B4V58FL', year:2022 },
 
-  /* ── APS-C — Sigma (Sony E / Fuji X) ───────────────────── */
+  /* ── APS-C — Sigma DC DN (Sony E / Fuji X) ─────────────── */
   { focal:16,  fstop:1.4, name:'Sigma 16mm F1.4 DC DN Contemporary',  sensors:['APSC'], asin_jp:'B077BWG7VX', asin_en:'B077BWG7VX', year:2017 },
   { focal:18,  fstop:2.8, name:'Sigma 18-50mm F2.8 DC DN Contemporary',sensors:['APSC'], asin_jp:'B09JFXS4X1', asin_en:'B09JFXS4X1', year:2021 },
   { focal:30,  fstop:1.4, name:'Sigma 30mm F1.4 DC DN Contemporary',  sensors:['APSC'], asin_jp:'B075543MDD', asin_en:'B075543MDD', year:2017 },
 
-  /* ── APS-C — Samyang / Viltrox ──────────────────────────── */
+  /* ── APS-C — Samyang ────────────────────────────────────── */
   { focal:12,  fstop:2.0, name:'Samyang AF 12mm F2.0 E',               sensors:['APSC'], asin_jp:'B08Z2SMKDB', asin_en:'B08Z2SMKDB', year:2021 },
-  { focal:24,  fstop:1.8, name:'Viltrox AF 24mm F1.8 E (APS-C)',       sensors:['APSC'], asin_jp:'B0C52SL5SS', asin_en:'B0C52SL5SS', year:2023 },
-  { focal:35,  fstop:1.7, name:'Viltrox AF 35mm F1.7 E',               sensors:['APSC'], asin_jp:'B0CKBB8JGV', asin_en:'B0CKBB8JGV', year:2023 },
+
+  /* ── APS-C — Viltrox (Sony E / Fuji X) ─────────────────── */
+  { focal:35,  fstop:1.7, name:'Viltrox AF 35mm F1.7 E',               sensors:['APSC'], asin_jp:'B0DQP6SQ7Z', asin_en:'B0DQP6SQ7Z', year:2024 },
   { focal:50,  fstop:1.8, name:'Viltrox AF 50mm F1.8 E (APS-C)',       sensors:['APSC'], asin_jp:'B0BW4J2JFH', asin_en:'B0BW4J2JFH', year:2023 },
+
+  /* ── APS-C — Viltrox (Nikon Z) ─────────────────────────── */
+  { focal:35,  fstop:1.7, name:'Viltrox AF 35mm F1.7 (Nikon Z)',       sensors:['APSC'], asin_jp:'B0DP74RL9X', asin_en:'B0DQV4MGJF', year:2024 },
 
   /* ── 1-inch ─────────────────────────────────────────────── */
   { focal:24,  fstop:1.8, name:'Sony Cyber-shot RX100 VII',            sensors:['1INCH'], asin_jp:'B07VDGB5R6', asin_en:'B07VDGB5R6', year:2019 },
