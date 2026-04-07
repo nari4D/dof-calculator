@@ -96,7 +96,7 @@ const LENS_DB = [
   { focal:35,  fstop:1.8, name:'Viltrox AF 35mm F1.8 (Nikon Z)',       sensors:['FF'], asin_jp:'B09G2G44WQ', asin_en:'B09G2G44WQ', year:2021 },
 
   /* ── APS-C — Sony E ─────────────────────────────────────── */
-  { focal:11,  fstop:1.8, name:'Sony E 11mm F1.8',                    sensors:['APSC'], asin_jp:'B09RZPZDMW', asin_en:'B09RZPZDMW', year:2022 },
+  { focal:11,  fstop:1.8, name:'Sony E 11mm F1.8',                    sensors:['APSC'], asin_jp:'B0B2YZX69J', asin_en:'B09RZPZDMW', year:2022 },
   { focal:35,  fstop:1.8, name:'Sony E 35mm F1.8 OSS',                sensors:['APSC'], asin_jp:'B00GEBLXGO', asin_en:'B00GEBLXGO', year:2013 },
   { focal:50,  fstop:1.8, name:'Sony E 50mm F1.8 OSS',                sensors:['APSC'], asin_jp:'B00DMLPVG0', asin_en:'B00DMLPVG0', year:2013 },
 
@@ -112,15 +112,15 @@ const LENS_DB = [
 
   /* ── APS-C — Canon RF-S ─────────────────────────────────── */
   { focal:10,  fstop:4.5, name:'Canon RF-S 10-18mm F4.5-6.3 IS STM',  sensors:['APSC'], asin_jp:'B0D4RXPZ8G', asin_en:'B0D6GY79XV', year:2023 },
-  { focal:18,  fstop:4.5, name:'Canon RF-S 18-45mm F4.5-6.3 IS STM',  sensors:['APSC'], asin_jp:'B09B4V58FL', asin_en:'B09B4V58FL', year:2022 },
+  { focal:18,  fstop:4.5, name:'Canon RF-S 18-45mm F4.5-6.3 IS STM',  sensors:['APSC'], asin_jp:'B0B27NSFLQ', asin_en:'B09B4V58FL', year:2022 },
 
   /* ── APS-C — Sigma DC DN (Sony E / Fuji X) ─────────────── */
   { focal:16,  fstop:1.4, name:'Sigma 16mm F1.4 DC DN Contemporary',  sensors:['APSC'], asin_jp:'B077BWG7VX', asin_en:'B077BWG7VX', year:2017 },
-  { focal:18,  fstop:2.8, name:'Sigma 18-50mm F2.8 DC DN Contemporary',sensors:['APSC'], asin_jp:'B09JFXS4X1', asin_en:'B09JFXS4X1', year:2021 },
+  { focal:18,  fstop:2.8, name:'Sigma 18-50mm F2.8 DC DN Contemporary',sensors:['APSC'], asin_jp:'B09JVBB36L', asin_en:'B09JFXS4X1', year:2021 },
   { focal:30,  fstop:1.4, name:'Sigma 30mm F1.4 DC DN Contemporary',  sensors:['APSC'], asin_jp:'B075543MDD', asin_en:'B075543MDD', year:2017 },
 
   /* ── APS-C — Samyang ────────────────────────────────────── */
-  { focal:12,  fstop:2.0, name:'Samyang AF 12mm F2.0 E',               sensors:['APSC'], asin_jp:'B08Z2SMKDB', asin_en:'B08Z2SMKDB', year:2021 },
+  { focal:12,  fstop:2.0, name:'Samyang AF 12mm F2.0 E',               sensors:['APSC'], asin_jp:'B093BN913R', asin_en:'B08Z2SMKDB', year:2021 },
 
   /* ── APS-C — Viltrox (Sony E / Fuji X) ─────────────────── */
   { focal:35,  fstop:1.7, name:'Viltrox AF 35mm F1.7 E',               sensors:['APSC'], asin_jp:'B0DQP6SQ7Z', asin_en:'B0DQP6SQ7Z', year:2024 },
