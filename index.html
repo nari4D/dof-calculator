@@ -335,7 +335,7 @@ footer{animation-delay:.17s}
       <div class="brand-icon">⌖</div>
       <div>
         <h1><em>DoF</em> Calculator</h1>
-        <div class="subtitle">depth of field · 被写界深度 · v25</div>
+        <div class="subtitle">depth of field · 被写界深度 · v26</div>
       </div>
     </div>
     <div class="header-controls">
@@ -381,8 +381,8 @@ footer{animation-delay:.17s}
       <span class="slider-label" id="labelFocal">焦点距離</span>
       <span class="slider-val"><span id="focalVal">16</span><span class="unit">mm</span></span>
     </div>
-    <input type="range" id="focal" min="10" max="50" value="16" step="1" oninput="update()">
-    <div class="cslider" id="cs-focal" data-id="focal" data-min="10" data-max="50" data-step="1">
+    <input type="range" id="focal" min="10" max="35" value="16" step="1" oninput="update()">
+    <div class="cslider" id="cs-focal" data-id="focal" data-min="10" data-max="35" data-step="1">
       <div class="cslider-track"><div class="cslider-fill" id="csf-focal"></div></div>
       <div class="cslider-thumb" id="cst-focal"></div>
     </div>
@@ -490,7 +490,7 @@ footer{animation-delay:.17s}
 <footer>
   <div class="footer-row">
     <div>
-      <div class="footer-left" id="footerText">Depth of Field Calculator v25<br>CoC-based optical formula</div>
+      <div class="footer-left" id="footerText">Depth of Field Calculator v26<br>CoC-based optical formula</div>
       <div class="footer-left" id="affiliateNote">※Contains Amazon affiliate links</div>
     </div>
     <a href="https://github.com/nari4D/dof-calculator/" class="footer-link" id="footerGithub" target="_blank" rel="noopener">View on GitHub →</a>
@@ -538,7 +538,7 @@ const T = {
     verdictNgFar:(over,far)=>`ピント外れ　被写体の奥端がFar限界（${far}）より <strong>${over}</strong> 超えています。`,
     verdictNgBoth:(near,far)=>`ピント外れ　被写体が手前・奥の両側でフォーカス範囲（${near}〜${far}）を超えています。`,
     noteText:'「被写体の奥行き」スライダーで判定基準を自由に変更できます。',
-    shareBtnText:'シェア', footerText:'Depth of Field Calculator v25\nCoC-based optical formula',
+    shareBtnText:'シェア', footerText:'Depth of Field Calculator v26\nCoC-based optical formula',
     footerGithub:'GitHub で見る →', vizFocus:'ピント範囲', vizSubject:'被写体の奥行き',
   },
   en:{
@@ -557,7 +557,7 @@ const T = {
     verdictNgFar:(over,far)=>`Out of focus　Subject extends <strong>${over}</strong> beyond the far limit (${far}).`,
     verdictNgBoth:(near,far)=>`Out of focus　Subject extends beyond both near and far limits (${near}〜${far}).`,
     noteText:'Use the "Subject Depth" slider to change the in-focus judgment threshold.',
-    shareBtnText:'Share', footerText:'Depth of Field Calculator v25\nCoC-based optical formula',
+    shareBtnText:'Share', footerText:'Depth of Field Calculator v26\nCoC-based optical formula',
     footerGithub:'View on GitHub →', vizFocus:'Focus zone', vizSubject:'Subject depth',
   }
 };
@@ -1227,7 +1227,9 @@ function renderAffiliate() {
       l.sensors.includes(sKey) &&
       Math.abs(l.focal - f) <= FOCAL_TOL &&
       (l.year || 0) >= 2020 &&
-      allowedBrands.has(extractBrand(l.name))
+      allowedBrands.has(extractBrand(l)) &&
+      /* mount check: if lens has a specific mount, only show when body uses that mount */
+      (!l.mount || !BODY_MOUNT[curBrand] || l.mount === BODY_MOUNT[curBrand])
     )
     .sort((a, b) => {
       const da = Math.abs(a.focal - f) + Math.abs(a.fstop - curFstop) * 0.5 - (a.year || 2000) * 0.002;
@@ -1285,11 +1287,15 @@ const COMPANION_BRANDS = {
   Hasselblad:[],
 };
 
+/* Body mount mapping — used to filter mount-specific third-party lenses */
+const BODY_MOUNT = {
+  Sony:'E', Canon:'RF', Nikon:'Z', Lumix:'L', Fujifilm:'X', Hasselblad:'XCD'
+};
+
 let curBrand = 'Sony';
 
-function extractBrand(name) {
-  const first = name.split(' ')[0];
-  // Fujifilm lenses are listed as "Fujinon"
+function extractBrand(l) {
+  const first = (typeof l === 'string' ? l : l.name).split(' ')[0];
   if (first === 'Fujinon') return 'Fujifilm';
   return first;
 }
