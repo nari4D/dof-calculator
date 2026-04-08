@@ -94,7 +94,7 @@ const LENS_DB = [
   { focal:35, fstop:1.8, name:'Viltrox AF 35mm F1.8 FE',            sensors:['FF'], mount:'E', asin_jp:'B09NPNF5XK', year:2022 },
 
   /* ── Full Frame — Viltrox (Nikon Z) ─────────────────────── */
-  { focal:20, fstop:2.8, name:'Viltrox AF 20mm F2.8 (Nikon Z)',     sensors:['FF'], mount:'Z', asin_jp:'B0CTLTKNZ3', year:2024 },
+  { focal:20, fstop:2.8, name:'Viltrox AF 20mm F2.8 (Nikon Z)',     sensors:['FF'], mount:'Z', asin_jp:'B0CTLTKNZ3', img:'71O7QFm5LvL', year:2024 },
   { focal:24, fstop:1.8, name:'Viltrox AF 24mm F1.8 (Nikon Z)',     sensors:['FF'], mount:'Z', asin_jp:'B09DLG64G1', year:2021 },
   { focal:35, fstop:1.8, name:'Viltrox AF 35mm F1.8 (Nikon Z)',     sensors:['FF'], mount:'Z', asin_jp:'B09G2G44WQ', year:2021 },
 
