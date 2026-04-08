@@ -3,16 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DoF Calculator — 被写界深度計算ツール</title>
+<title>DoF Calculator for 3D — 被写界深度計算ツール</title>
 
 <!-- OGP -->
-<meta property="og:title" content="DoF Calculator — 被写界深度計算ツール">
+<meta property="og:title" content="DoF Calculator for 3D — 被写界深度計算ツール">
 <meta property="og:description" content="焦点距離・絞り・撮影距離から被写界深度をリアルタイム計算。中判 / フルサイズ / APS-C 対応。URLで設定をシェア可能。">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://via.placeholder.com/1200x630/f4f2ee/1c1c1c?text=DoF+Calculator">
 <meta property="og:url" content="">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="DoF Calculator — 被写界深度計算ツール">
+<meta name="twitter:title" content="DoF Calculator for 3D — 被写界深度計算ツール">
 <meta name="twitter:description" content="焦点距離・絞り・撮影距離から被写界深度をリアルタイム計算。">
 <meta name="description" content="焦点距離・絞り・撮影距離から被写界深度をリアルタイム計算。中判 / フルサイズ / APS-C 対応。">
 
@@ -324,6 +324,7 @@ header{animation-delay:0s}.sensor-section{animation-delay:.04s}
 .slider-section{animation-delay:.08s}.result-section{animation-delay:.13s}
 footer{animation-delay:.17s}
 </style>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "74825e36388d48ce8ca04399df381478"}'></script><!-- End Cloudflare Web Analytics -->
 </head>
 <body>
 <div class="page">
@@ -334,8 +335,8 @@ footer{animation-delay:.17s}
     <div class="brand">
       <div class="brand-icon">⌖</div>
       <div>
-        <h1><em>DoF</em> Calculator</h1>
-        <div class="subtitle">depth of field · 被写界深度 · v26</div>
+        <h1><em>DoF</em> Calculator <span style="font-size:.7em;font-weight:400">for 3D</span></h1>
+        <div class="subtitle">depth of field · 被写界深度 · v27</div>
       </div>
     </div>
     <div class="header-controls">
@@ -350,7 +351,7 @@ footer{animation-delay:.17s}
       </button>
     </div>
   </div>
-  <p class="header-desc" id="headerDesc">焦点距離・絞り・撮影距離を変えてリアルタイムで被写界深度を確認。URLで設定をシェアできます。</p>
+  <p class="header-desc" id="headerDesc">焦点距離・絞り・撮影距離を調整すると、リアルタイムに被写界深度を計算し、図解でピントを確認できます。3DGS撮影に役立つツール。URLで設定をシェア可能。</p>
 </header>
 
 <!-- Sensor -->
@@ -490,7 +491,7 @@ footer{animation-delay:.17s}
 <footer>
   <div class="footer-row">
     <div>
-      <div class="footer-left" id="footerText">Depth of Field Calculator v26<br>CoC-based optical formula</div>
+      <div class="footer-left" id="footerText">Depth of Field Calculator v27<br>CoC-based optical formula</div>
       <div class="footer-left" id="affiliateNote">※Contains Amazon affiliate links</div>
     </div>
     <a href="https://github.com/nari4D/dof-calculator/" class="footer-link" id="footerGithub" target="_blank" rel="noopener">View on GitHub →</a>
@@ -523,7 +524,7 @@ let animFrameId       = null;
 ═══════════════════════════════════════════ */
 const T = {
   ja:{
-    headerDesc:'焦点距離・絞り・撮影距離を調整すると、リアルタイムに被写界深度を計算し、図解でピントを確認できます。3DGS撮影に最適なツール。URLで設定をシェア可能。',
+    headerDesc:'焦点距離・絞り・撮影距離を調整すると、リアルタイムに被写界深度を計算し、図解でピントを確認できます。3DGS撮影に役立つツール。URLで設定をシェア可能。',
     labelSensor:'センサーサイズ', labelFocal:'焦点距離', labelAperture:'絞り',
     labelDist:'撮影距離', labelDepth:'被写体の奥行き', labelResults:'計算結果',
     cardDofLabel:'被写界深度', cardNearLabel:'手前限界', cardFarLabel:'奥側限界',
@@ -538,11 +539,11 @@ const T = {
     verdictNgFar:(over,far)=>`ピント外れ　被写体の奥端がFar限界（${far}）より <strong>${over}</strong> 超えています。`,
     verdictNgBoth:(near,far)=>`ピント外れ　被写体が手前・奥の両側でフォーカス範囲（${near}〜${far}）を超えています。`,
     noteText:'「被写体の奥行き」スライダーで判定基準を自由に変更できます。',
-    shareBtnText:'シェア', footerText:'Depth of Field Calculator v26\nCoC-based optical formula',
+    shareBtnText:'シェア', footerText:'Depth of Field Calculator v27\nCoC-based optical formula',
     footerGithub:'GitHub で見る →', vizFocus:'ピント範囲', vizSubject:'被写体の奥行き',
   },
   en:{
-    headerDesc:'Adjust focal length, aperture, subject distance to see Depth of Field in real time and check focus. A tool optimized for 3DGS capture. Share settings via URL.',
+    headerDesc:'Adjust focal length, aperture, and subject distance to see depth of field in real time while checking focus. Optimized for 3DGS capture. Share settings via URL.',
     labelSensor:'Sensor Size', labelFocal:'Focal Length', labelAperture:'Aperture',
     labelDist:'Subject Distance', labelDepth:'Subject Depth', labelResults:'Results',
     cardDofLabel:'Depth of Field', cardNearLabel:'Near Limit', cardFarLabel:'Far Limit',
@@ -557,7 +558,7 @@ const T = {
     verdictNgFar:(over,far)=>`Out of focus　Subject extends <strong>${over}</strong> beyond the far limit (${far}).`,
     verdictNgBoth:(near,far)=>`Out of focus　Subject extends beyond both near and far limits (${near}〜${far}).`,
     noteText:'Use the "Subject Depth" slider to change the in-focus judgment threshold.',
-    shareBtnText:'Share', footerText:'Depth of Field Calculator v26\nCoC-based optical formula',
+    shareBtnText:'Share', footerText:'Depth of Field Calculator v27\nCoC-based optical formula',
     footerGithub:'View on GitHub →', vizFocus:'Focus zone', vizSubject:'Subject depth',
   }
 };
@@ -1188,9 +1189,8 @@ function hexToRgb(hex) {
    LENS DATABASE & AFFILIATE
    レンズDBは lenses.js で管理
 ═══════════════════════════════════════════ */
-const AFFILIATE_TAG = 'dofcalculator-22';
+const AFFILIATE_TAG = 'dofcalc-22';
 const AMAZON_JP = 'https://www.amazon.co.jp/dp/';
-const AMAZON_EN = 'https://www.amazon.com/dp/';
 
 const FOCAL_TOL = 8; // ±8mm で一致とみなす
 
@@ -1244,10 +1244,9 @@ function renderAffiliate() {
     return;
   }
 
-  const isJa    = lang === 'ja';
-  const base    = isJa ? AMAZON_JP : AMAZON_EN;
   container.innerHTML = matched.map(l => {
-    const asin   = isJa ? l.asin_jp : l.asin_en;
+    const asin   = l.asin_jp;
+    const base   = AMAZON_JP;
     const href   = asin ? `${base}${asin}?tag=${AFFILIATE_TAG}` : '#';
     const target = asin ? 'target="_blank" rel="noopener"' : '';
     const imgSrc = asin ? `https://m.media-amazon.com/images/P/${asin}.01._SL80_.jpg` : '';
